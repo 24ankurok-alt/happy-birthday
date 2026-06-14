@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Annu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#fff0f5,#fffef7);
+overflow-x:hidden;
+color:#444;
+}
+
+/* Hearts */
+.heart{
+position:fixed;
+bottom:-30px;
+color:#ff4f81;
+pointer-events:none;
+z-index:1;
+animation:heartFloat linear infinite;
+}
+@keyframes heartFloat{
+0%{transform:translateY(0) rotate(0deg);opacity:1;}
+100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
+}
+
+/* Flowers */
+.flower{
+position:fixed;
+top:-30px;
+pointer-events:none;
+z-index:1;
+animation:flowerFall linear infinite;
+}
+@keyframes flowerFall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+position:relative;
+z-index:2;
+}
+
+.card{
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(8px);
+padding:35px;
+border-radius:25px;
+max-width:850px;
+width:100%;
+box-shadow:0 10px 35px rgba(0,0,0,.12);
+text-align:center;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+color:#ff4f81;
+margin-bottom:15px;
+}
+
+h2{
+color:#ff6699;
+margin:18px 0;
+}
+
+p{
+margin:12px 0;
+line-height:1.8;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:40px;
+background:#ff4f81;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#countdown{
+font-size:2rem;
+font-weight:bold;
+color:#ff4f81;
+margin:20px 0;
+}
+
+.hidden{
+display:none;
+}
+
+audio{
+margin-top:15px;
+width:100%;
+max-width:350px;
+}
+
+/* Gift Box */
+.gift{
+width:180px;
+height:180px;
+margin:30px auto;
+position:relative;
+cursor:pointer;
+}
+
+.box{
+position:absolute;
+bottom:0;
+width:180px;
+height:120px;
+background:#ff7ba5;
+border-radius:0 0 18px 18px;
+}
+
+.lid{
+position:absolute;
+top:20px;
+left:-5px;
+width:190px;
+height:40px;
+background:#ff4f81;
+border-radius:8px;
+transition:1s;
+}
+
+.ribbonV{
+position:absolute;
+left:80px;
+width:20px;
+height:180px;
+background:white;
+}
+
+.ribbonH{
+position:absolute;
+top:70px;
+left:-5px;
+width:190px;
+height:20px;
+background:white;
+}
+
+.open .lid{
+transform:rotate(-25deg) translate(-40px,-60px);
+}
+
+#giftText{
+display:none;
+margin-top:20px;
+font-size:20px;
+font-weight:600;
+color:#ff4f81;
+}
+
+.letterBox{
+background:#fffafc;
+padding:25px;
+border-radius:20px;
+margin-top:25px;
+text-align:left;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.signature{
+margin-top:25px;
+text-align:right;
+font-family:'Dancing Script',cursive;
+font-size:2rem;
+color:#ff4f81;
+}
+
+ul{
+max-width:650px;
+margin:20px auto;
+text-align:left;
+}
+
+li{
+margin:12px 0;
+}
+
+footer{
+padding:20px;
+text-align:center;
+color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<div id="decorations"></div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<section>
+<div class="card">
+
+<h1>✨ Happy Birthday Annu ❤️ ✨</h1>
+
+<p>
+Out of millions of websites on the internet,
+there is one tiny little corner made only for you.
+</p>
+
+<p>
+Maybe this is just a simple page...
+but every line here was written with a smile,
+thinking about you.
+</p>
+
+<h2>⏳ Countdown To Your Day ⏳</h2>
+
+<div id="countdown">Loading...</div>
+
+<button onclick="startSurprise()">
+🎁 Begin Your Surprise
+</button>
+
+<div id="surprise" class="hidden">
+
+<h2>🎂 Happy Birthday 🎂</h2>
+
+<p>
+I hope today gives you endless happiness,
+beautiful memories,
+and countless reasons to smile.
+</p>
+
+<button onclick="playSong()">
+🎵 Play Our Song
+</button>
+
+<br>
+
+<div class="gift" id="gift" onclick="openGift()">
+<div class="lid"></div>
+<div class="box"></div>
+<div class="ribbonV"></div>
+<div class="ribbonH"></div>
+</div>
+
+<div id="giftText">
+💖 This gift isn't expensive...<br>
+it's made of memories, wishes and little promises.
+</div>
+
+</div>
+</div>
+</section><section id="promisePage">
+<div class="card">
+
+<h1>💖 My Little Promises To You 💖</h1>
+
+<div class="letterBox">
+<p>
+Dear Annu,
+</p>
+
+<p>
+This little gift isn't about expensive things.
+It's about the little moments that make life beautiful.
+So here are a few promises and dreams that I hope we get to share.
+</p>
+
+<ul>
+<li>🌅 Watch a beautiful sunset together.</li>
+<li>☕ Go for random chai or coffee dates.</li>
+<li>🚶 Take long walks with no destination.</li>
+<li>🎵 Share songs that remind us of each other.</li>
+<li>🍜 Try a new café or street food place together.</li>
+<li>📚 Study together... or at least pretend to. 😄</li>
+<li>🌧️ Get caught in the rain once and laugh about it later.</li>
+<li>🎂 Celebrate many more birthdays with smiles.</li>
+<li>✨ Always support each other's dreams.</li>
+<li>❤️ Never stop making memories.</li>
+</ul>
+
+<p>
+You don't have to promise me anything back.
+I just wanted to create something that reminds you
+how special you are to me.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="card">
+
+<h1>🌸 18 Things I Like About You 🌸</h1>
+
+<ul>
+<li>1. Your smile.</li>
+<li>2. Your kindness.</li>
+<li>3. The way you care about people.</li>
+<li>4. Your cute little expressions.</li>
+<li>5. Your laugh.</li>
+<li>6. The way you make ordinary moments special.</li>
+<li>7. Your honesty.</li>
+<li>8. Your positive energy.</li>
+<li>9. Your confidence.</li>
+<li>10. Your beautiful heart.</li>
+<li>11. The comfort I feel around you.</li>
+<li>12. Your patience.</li>
+<li>13. Your innocence.</li>
+<li>14. The way you listen.</li>
+<li>15. The happiness you spread.</li>
+<li>16. The memories we've made.</li>
+<li>17. Simply being yourself.</li>
+<li>18. Because there is no one else quite like you. ❤️</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="card">
+
+<h1>💌 One Last Little Letter 💌</h1>
+
+<div class="letterBox">
+
+<p>Dear Annu,</p>
+
+<p>
+I wanted your first birthday with me to be a little different.
+Instead of giving you just another message,
+I wanted to create something that would always be here,
+waiting for you whenever you wanted to smile.
+</p>
+
+<p>
+Maybe this is just a simple website,
+but every word here was written while thinking about you.
+Thank you for every conversation,
+every laugh,
+and every little memory we've shared.
+</p>
+
+<p>
+I hope this year brings you happiness,
+success,
+good health,
+and countless reasons to smile.
+And whenever life becomes difficult,
+I hope you remember that there is someone
+quietly cheering for you and wishing the very best for you.
+</p>
+
+<p>
+Thank you for being exactly who you are.
+Never stop smiling. ❤️
+</p>
+
+<div class="signature">
+Happy Birthday, Annu ✨<br>
+— Ullu Bandar 🐵❤️
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+Made with ❤️ only for Annu
+</footer>
+
+<script>
+
+// ===== BIRTHDAY DATE =====
+const birthday = new Date("2026-06-15T00:00:00").getTime();
+
+const timer = setInterval(function(){
+let now = new Date().getTime();
+let gap = birthday - now;
+
+if(gap <= 0){
+document.getElementById("countdown").innerHTML =
+"🎉 It's Your Birthday! 🎉";
+clearInterval(timer);
+return;
+}
+
+let d = Math.floor(gap/(1000*60*60*24));
+let h = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+let m = Math.floor((gap%(1000*60*60))/(1000*60));
+let s = Math.floor((gap%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds";
+
+},1000);
+
+function startSurprise(){
+document.getElementById("surprise").classList.remove("hidden");
+document.getElementById("surprise").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+function playSong(){
+document.getElementById("music").play();
+}
+
+function openGift(){
+document.getElementById("gift").classList.add("open");
+document.getElementById("giftText").style.display="block";
+
+setTimeout(function(){
+document.getElementById("promisePage").scrollIntoView({
+behavior:"smooth"
+});
+},1500);
+}
+
+// Floating Hearts & Flowers
+function createDecoration(){
+let el = document.createElement("div");
+
+if(Math.random() > 0.5){
+el.className = "heart";
+el.innerHTML = "❤";
+el.style.left = Math.random()*100 + "vw";
+el.style.fontSize = (15+Math.random()*20) + "px";
+el.style.animationDuration = (5+Math.random()*5) + "s";
+}else{
+el.className = "flower";
+const flowers = ["🌸","🌺","🌷","🌹"];
+el.innerHTML = flowers[Math.floor(Math.random()*flowers.length)];
+el.style.left = Math.random()*100 + "vw";
+el.style.fontSize = (18+Math.random()*12) + "px";
+el.style.animationDuration = (6+Math.random()*5) + "s";
+}
+
+document.body.appendChild(el);
+
+setTimeout(function(){
+el.remove();
+},10000);
+}
+
+setInterval(createDecoration,400);
+
+</script>
+
+</body>
+</html>
